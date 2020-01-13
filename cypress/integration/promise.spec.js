@@ -1,3 +1,4 @@
+/// <reference types="cypress"/>
 it('teste promise', ()=> { })
 
 const getSomething = () => {
