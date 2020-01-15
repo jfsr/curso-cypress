@@ -1,4 +1,3 @@
-/// <reference types="Cypress" />
 
 context('Actions', () => {
   beforeEach(() => {
