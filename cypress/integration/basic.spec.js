@@ -2,17 +2,17 @@
 
 describe('Cypress basics', () => {
     it('Should visit a page and assert title', () => {
-        cy.visit('https://portalnti.ufpe.br/')
+        cy.visit('https://sites.ufpe.br/cstic/')
         cy.title()
-            .should('be.equal', 'Portal NTI')
-            .and('contain', 'Portal')
+            .should('be.equal', 'Central de Servicos TIC – CSTIC – UFPE')
+            .and('contain', 'CSTIC')
     })
 
-    it.only('Should find and interact with an element', () => {
-        cy.visit('https://portalnti.ufpe.br/')
-        cy.get('#menu-item-795 > .nav-link')
+    it('Should find and interact with an element', () => {
+        cy.visit('https://sites.ufpe.br/cstic/')
+        cy.get('#nav-perfis-usuario > :nth-child(2) > .btn')
             .click()
-        cy.get('.titulo-pag-interna')
-            .should('have.text', 'Ramais')
+            cy.get('.interno')
+            .should('have.text', 'Serviços para Servidor')
     })
 })
