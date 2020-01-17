@@ -29,8 +29,16 @@ describe('Work with basic elements', () => {
 
     it.only('Text Fields', () => {
         const searchedValue = 'Eduroam'
+        
         cy.get('.form-control').type(searchedValue)
         cy.get('#searchsubmit').click()
         cy.get('.titulo').should('have.contain', `Resultado da pesquisa por: ${searchedValue}`)
+        
+        cy.get('.form-control')
+            .clear()
+            .type(`outro valor{selectAll}${searchedValue}`, {delay: 200})
+            .should('have.value', searchedValue)
+
+
     })
 })
