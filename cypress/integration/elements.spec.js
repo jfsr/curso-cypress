@@ -27,7 +27,7 @@ describe('Work with basic elements', () => {
         cy.get('h1').should('have.text', 'Conheça a Central de Serviços de TIC')
     })
 
-    it.only('Text Fields', () => {
+    it('Text Fields', () => {
         const searchedValue = 'Eduroam'
         
         cy.get('.form-control').type(searchedValue)
@@ -38,7 +38,17 @@ describe('Work with basic elements', () => {
             .clear()
             .type(`outro valor{selectAll}${searchedValue}`, {delay: 200})
             .should('have.value', searchedValue)
-
-
     })
+
+    it.only('Combo box', () => {
+        cy.get('#menu-item-dropdown-56').click()
+        cy.get('#menu-item-280 > .dropdown-item')
+            .should('have.text', 'Todos os Serviços')
+            .click()
+        cy.get('.interno')
+            .should('have.text', 'Todos os Serviços')
+    })
+
+    //https://wcaquino.me/cypress/componentes.html
+
 })
