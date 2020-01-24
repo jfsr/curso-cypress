@@ -6,6 +6,9 @@ describe('Cypress basics', () => {
         cy.title()
             .should('be.equal', 'Central de Servicos TIC – CSTIC – UFPE')
             .and('contain', 'CSTIC')
+        cy.title().then(title => {
+            console.log(title)
+        })
     })
 
     it('Should find and interact with an element', () => {

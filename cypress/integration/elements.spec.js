@@ -5,7 +5,7 @@ describe('Work with basic elements', () => {
     before(() => {
         cy.visit('https://sites.ufpe.br/cstic/')
     })
-    
+
     //Executa antes da cada teste
     beforeEach(() => {
         cy.reload()
@@ -29,14 +29,14 @@ describe('Work with basic elements', () => {
 
     it('Text Fields', () => {
         const searchedValue = 'Eduroam'
-        
+
         cy.get('.form-control').type(searchedValue)
         cy.get('#searchsubmit').click()
         cy.get('.titulo').should('have.contain', `Resultado da pesquisa por: ${searchedValue}`)
-        
+
         cy.get('.form-control')
             .clear()
-            .type(`outro valor{selectAll}${searchedValue}`, {delay: 200})
+            .type(`outro valor{selectAll}${searchedValue}`, { delay: 200 })
             .should('have.value', searchedValue)
     })
 
